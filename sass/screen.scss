@@ -1,0 +1,426 @@
+@import "reset.scss";
+@import "mixins.scss";
+
+// Fonts
+$fonts: '../fonts/';
+@font-face {
+    font-family: 'mensch';
+    src: url('#{$fonts}mensch-webfont.eot');
+    src: url('#{$fonts}mensch-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$fonts}mensch-webfont.woff') format('woff'),
+         url('#{$fonts}mensch-webfont.ttf') format('truetype'),
+         url('#{$fonts}mensch-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+// Variables
+$tan:#F3E4C8;
+
+
+$mensch: 'mensch', Helvetica, Arial, sans-serif;
+
+$link_color:$tan;
+
+
+
+body{background:#95c9c3 url(../img/grunge.png) repeat-x 0 0;
+	font-family:Helvetica, Arial, sans-serif;
+}
+
+img{max-width:100%;}
+.contain{
+	max-width:980px;
+	padding:0 20px;
+	margin:auto;
+	@extend .clear_fix;
+
+}
+.cl{border:10px solid #f00;}
+header.main{background:url(../img/header.png);
+	padding-bottom:14px;
+	h1{background:url(../img/logo.png) no-repeat;
+		width:459px;
+		height:50px;
+		text-indent:-9999px;
+		margin:auto;
+	}
+
+	.contain{padding:29px 0;}
+}
+
+nav.main{
+	background:url(../img/ribbon.png) no-repeat 50% 0;
+	height:68px;
+	font-family:$mensch;
+	margin-top:-14px;
+	text-align:center;
+
+	li{display:inline-block;
+		&:hover{
+			@extend %current_hover;
+		}
+		&.current{
+			@extend %current_hover;
+		}
+	}
+	a{color:$link_color;
+		text-transform:uppercase;
+		@include rem(2);
+		text-shadow:2px 2px 0 rgba(0,0,0,0.3);
+		display:block;
+		padding:23px 15px;
+		@extend .clear_fix;
+	}
+}
+%current_hover{position:relative; top:-2px;
+	a{background:url(../img/current.png) no-repeat 50% 0; position:relative; top:2px;}
+}
+
+.slider-wrapper{
+	margin-top:33px;
+	border:10px solid $tan;
+	@include box-shadow(3px 3px 0 0 rgba(0,0,0,0.1));
+
+	&:hover{
+		.nivo-prevNav,
+		.nivo-nextNav{opacity:1;}
+	}
+}
+
+.nivo-prevNav,
+.nivo-nextNav{
+	background:url(../img/arrows.png) no-repeat 0 -64px;
+	width:38px;
+	height:64px;
+	display:inline-block;
+	text-indent:-9999px;
+	opacity:0;
+	@include transition(all .5s);
+}
+.nivo-prevNav{background-position:0 0;}
+.nivo-caption{
+		color:#585246;
+		background: $tan;
+		padding: 5px 10px;
+		opacity:1;
+		@include rem(1.6);
+}
+
+.home{
+	h2{
+		color: #CB5432;
+		font-family:$mensch;
+		@include rem(4.8);
+		line-height:1.3;
+		word-spacing: -0.2em;
+		text-shadow: 3px 3px 0 rgba(#FFF, 0.5);
+		margin: 20px auto;
+		text-align:center;
+	}
+}
+
+.hp_articles{@extend .clear_fix;
+	article{
+			border: 10px solid $tan;
+			background:$tan;
+			/* width:31.914893617%; */
+			width:width(300);
+			width:(300/940)*100%;
+
+			margin:0 0 50px;
+
+			@include box-shadow(3px 3px 0 0 rgba(#000,0.1));
+			float:left;
+			&:nth-child(3n-1){
+				margin:0 2.127659574% 50px;
+			}
+		img{}
+		time{
+			color:#cb5432;
+			display:block;
+			background:$tan;
+			height:50px;
+			width:60px;
+			@include rem(2);
+			font-family:$mensch;
+			margin:auto;
+			text-align:center;
+			margin:-29px auto 0;
+			position:relative;
+			border-radius:90%;
+			padding:9px 0 0;
+		}
+		.day,.month{display:block;}
+		.month{}
+		p{
+			padding:0px 10px 14px;
+			text-align:center;
+			@include rem(1.6);
+		}
+	}
+}
+
+/* Start Blog */
+.col_1_bl{
+	@include get_width(620);
+	float:left;
+	margin-top:34px;
+}
+.bl{background:$tan;
+	@include box-shadow(3px 3px 0 0 rgba(0, 0, 0, 0.1));
+	padding:30px 30px 35px;
+	color:#585246;
+	position:relative;
+	margin-bottom:50px;
+	time{background:url(../img/date.png) no-repeat;
+		height:66px;
+		width:51px;
+		font-family:$mensch;
+		@include rem(2);
+		color:$tan;
+		text-align:center;
+		display:block;
+		float:right;
+		margin-top:-1px;
+		padding-top:9px;
+	}
+	.month, .day{display:block;}
+	.day{}
+
+	h2{
+		font-family:$mensch;
+		@include rem(3.6);
+		line-height:1.1;
+		margin:38px 0 3px;
+		letter-spacing:-0.03em;
+	}
+	p{
+		@include rem(1.6);
+		line-height:1.5;
+		margin-bottom:19px;
+	}
+
+	aside{
+		@include rem(1.4);
+		border-top:1px solid #585246;
+		padding-top:15px;
+		a{color:#cb5432;
+			&:hover, &:focus{text-decoration:underline;}
+		}
+	}
+}
+.tape{
+	position:absolute;
+	width:100%;
+	background:url(../img/tape.png) no-repeat 50% 0;
+	height:35px;
+	top:-15px;
+	left:0;
+}
+
+.pagination{text-align:center;
+	a{
+			@include box-shadow(3px 3px 0 0 rgba(0, 0, 0, 0.1));
+			color:#cb5432;
+			display:inline-block;
+			@include rem(1.6);
+		&:hover, &:focus{text-decoration:underline;}
+		&.prev{
+			background:$tan url(../img/arrow-left.png) no-repeat 0 50%;
+			padding:14px 18px 14px 38px;
+			margin-right:8px;
+		}
+		&.next{
+			background:$tan url(../img/arrow-right.png) no-repeat 100% 50%;
+			padding:14px 38px 14px 18px;
+		}
+	}
+}
+.col_2_bl{
+	@include get_width(260);
+	float:left;
+	margin-top:34px;
+	margin-left:width(60);
+
+	h3{
+		border:5px solid #444444;
+		border-width:5px 0;
+		font-family:$mensch;
+		@include rem(2.4);
+		text-transform:uppercase;
+		text-align:center;
+		padding:17px 5px 10px;
+		margin-bottom:15px;
+	}
+
+	.sponsors{
+		a{display:inline-block;
+			margin:0 7px 7px 0;
+			&:nth-child(odd){margin-right:0;}
+		}
+
+	}
+}
+/* End Blog */
+
+footer.main{
+	background:#585246 url(../img/footer.png) repeat-x;
+	color:#F3E4AF;
+	padding-bottom:9%;
+	margin-top:50px;
+	ul.social{background:url(../img/social-bg.png) repeat-x;
+		height:46px;
+		margin:auto auto 15px;
+		display:block;
+		width:135px;
+		position:relative;
+		top:-7px;
+		&:before, &:after{
+			content:"";
+			width:7px;
+			height:8px;
+			position:absolute;
+			top:0;
+		}
+		&:before{
+			background:url(../img/social-left-corner.png) no-repeat;
+			left:-7px;
+		}
+		&:after{
+			right:-7px;
+			background:url(../img/social-right-corner.png) no-repeat;
+		}
+		li{
+			display:inline-block;
+			margin:8px -10px 0 13px;
+		}
+	}
+
+	.columns{@extend .clear_fix;}
+	.col{width:23.4042553%; margin:0 1.063829787%; float:left;
+		&:first-child{margin-left:0;}
+		&:last-child{margin-right:0;}
+	}
+	h2{
+		color: #f9f5ed;
+ 		font-family:$mensch;
+ 		text-shadow: 2px 2px 0 rgba( 0,0,0,0.3);
+ 		line-height:1.3;
+ 		text-align:center;
+ 		@include rem(2.4);
+	}
+
+	ul.posts{
+		li{@extend .clear_fix;
+			margin-bottom:23px;
+		}
+		a.img{
+			float:left;
+			width:30%;
+			img{border:3px solid #FFF;}
+		}
+		p{
+			float:left;
+			width:63%;
+			margin-left:4%;
+			@include rem(1.4);
+			line-height:1.7;
+			margin-bottom:0;
+		}
+
+	}
+
+	p{
+		@include rem(1.4);
+			line-height:1.7;
+			margin-bottom:22px;
+	}
+	a{color:#FFF;}
+
+	ul.links{
+		a{
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			margin-bottom: 5px;
+			padding:5px 0 10px 10px;
+			display:block;
+			@include rem(1.4);
+		}
+	}
+}
+
+
+
+@media only screen and (max-width: 767px){
+	.contain{
+		padding:0 15px;
+	}
+
+	header.main{
+		h1{width:100%; background-size:62%; background-position: 50% 0}
+	}
+
+	nav.main{
+		ul{position:relative; z-index:9999;}
+			li{display:block;
+				&:hover, &.current{
+					a{text-decoration:underline; background:darken(#A83E2A,20%);}
+				}
+
+			}
+			a{color:$link_color;
+				background:#A83E2A;
+			}
+	}
+	.nivo-directionNav a{top:22%;}
+	.home{
+		h2{@include rem(3.6);}
+	}
+
+	.hp_articles article{
+		width:100%;
+		float:none;
+
+		&:nth-child(3n-1){
+				margin:0 0 50px;
+			}
+	}
+
+	footer.main{
+	ul.posts a.img{width:20%;}
+		.col{
+			float:none;
+			width:100%;
+		}
+	}
+
+}
+@media only screen and (min-width: 500px) and (max-width: 767px){
+	.hp_articles article{float:left; width:46%; margin:0 2% 50px;
+		&:nth-child(3n-1){margin:0 2% 50px;}
+	}
+}
+
+@include clearfix;
+
+
+/*
+ * Naver v3.0.7 - 2014-03-04
+ * A jQuery plugin for responsive navigation. Part of the Formstone Library.
+ * http://formstone.it/naver/
+ *
+ * Copyright 2014 Ben Plum; MIT Licensed
+ */
+
+ 	.naver .naver-handle { color: $tan; cursor: pointer; display: none; font-family:$mensch; @include rem(1.6); height: 30px; line-height: 28px; text-transform: uppercase;
+	 	-webkit-user-select: none;
+		   -moz-user-select: none;
+		    -ms-user-select: none;
+		     -o-user-select: none;
+			    user-select: none;
+ 	}
+ 	.naver .naver-handle:before { background: url(jquery.fs.naver-icon.png) no-repeat center; content: ''; display: block; float: left; height: 15px; margin: 7px 10px 0 20px; width: 20px; }
+ 	.naver .naver-wrapper { height: auto; }
+ 	.naver .naver-container:after { clear: both; content: "."; display: block; height: 0; line-height: 0; visibility: hidden; }
+
+	.naver.enabled .naver-handle { display: block; }
+	.naver.enabled .naver-wrapper { height: 0px; overflow: hidden; }

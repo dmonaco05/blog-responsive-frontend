@@ -1,0 +1,21 @@
+@import "mixins";
+@import "reset";
+
+body{background:#94C9C3; font-size:62.5%; font-family:Helvetica, Arial, sans-serif;}
+
+h1,h2,h3,h4,h5,h6,p,ul{margin-left:15px; margin-bottom:20px;}
+
+h1{@include rem(5);}
+h2{@include rem(3.6); margin-top:30px;}
+h3{@include rem(3);}
+h4{@include rem(2.4);}
+h5{@include rem(2);}
+h6{@include rem(1.8);}
+img{margin:10px 20px;}
+
+p,li{@include rem(1.6);}
+ul{margin-left:30px;}
+li{margin-bottom:10px;
+	ul{margin-top:10px; }
+}
+@include clearfix;

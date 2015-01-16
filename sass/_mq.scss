@@ -1,0 +1,65 @@
+// ==================================================
+// $Variables
+// ==================================================
+// Supports
+// @media min-width
+// @media max-width
+// @media min-width and max-width
+
+$viewport-increment: 0.1px; // customize to suite
+
+// Huge Desktop
+$huge_desktop: 1405px; // customize to suite
+$pre-huge_desktop: $huge_desktop - $viewport-increment;
+
+// Big Desktop
+$big_desktop: 1200px; // customize to suite
+$pre-bigdesktop: $big_desktop - $viewport-increment;
+
+// Desktop
+$desktop: 1024px; // customize to suite
+$pre-desktop: $desktop - $viewport-increment;
+
+//Up to Tablet
+$tablet_plus: 960px;
+$pre-tabletplus: $tablet_plus - $viewport-increment;
+// Tablet
+$tablet: 768px; // customize to suite
+$pre-tablet: $tablet - $viewport-increment;
+
+// Palm
+$palm: 640px; // customize to suite
+$post-palm: $palm + $viewport-increment;
+
+// Constraints
+$min: min-width;
+$max: max-width;
+
+
+// ==================================================
+// $Media Query @Mixin
+// ==================================================
+
+@mixin mq($constraint, $viewport1, $viewport2: null) {
+
+  @if $constraint == $min {
+
+    @media screen and ($min: $viewport1) {
+      @content;
+    }
+
+  } @else if $constraint == $max {
+
+    @media screen and ($max: $viewport1) {
+      @content;
+    }
+
+  } @else {
+
+    @media screen and ($min: $viewport1) and ($max: $viewport2) {
+      @content;
+    }
+
+  }
+
+}
